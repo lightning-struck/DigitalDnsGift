@@ -1,0 +1,105 @@
+$background-color: #1a1a2e;
+$card-bg-color: #2e2e47;
+$text-color: #fff;
+$secondary-text-color: #b5b5b5;
+$button-bg-color: #4e9eed;
+$button-hover-color: #3c7bbd;
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3px, 0);
+  }
+  50% {
+    transform: translate(5px, 0);
+  }
+  75% {
+    transform: translate(-3px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.giftContainer {
+  background-color: $background-color;
+  color: $text-color;
+  text-align: center;
+  padding: 20px;
+
+  .giftHeader {
+    p {
+      font-size: 16px;
+      margin: 0;
+      padding: 10px;
+      color: $secondary-text-color;
+    }
+  }
+
+  .giftTitle {
+    font-size: 24px;
+    margin: 20px 0;
+    color: $text-color;
+  }
+
+  .giftCards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    .giftCard {
+      background-color: $card-bg-color;
+      border: 1px solid darken($card-bg-color, 10%);
+      border-radius: 8px;
+      padding: 20px;
+      width: 150px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: relative; // Для возможности использования hover на дочернем элементе
+
+      &:hover {
+        animation: shake 0.5s ease-in-out; // Анимация при наведении на карточку
+      }
+
+      // Увеличение иконки при наведении на карточку
+      &:hover .giftIcon {
+        transform: scale(1.15); // Увеличение иконки на 15%
+        transition: transform 0.3s ease;
+      }
+
+      .giftIcon {
+        font-size: 36px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .giftDate {
+        font-size: 14px;
+        color: $secondary-text-color;
+      }
+
+      .giftPrize {
+        font-size: 18px;
+        margin: 10px 0;
+        color: $text-color;
+      }
+
+      .giftButton {
+        background-color: $button-bg-color;
+        color: $text-color;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 10px;
+
+        &:hover {
+          background-color: $button-hover-color;
+        }
+      }
+    }
+  }
+}

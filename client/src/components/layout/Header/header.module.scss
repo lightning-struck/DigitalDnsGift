@@ -1,0 +1,110 @@
+@keyframes shake {
+	0% {
+		transform: translate(0, 0);
+	}
+	25% {
+		transform: translate(-5px, 0);
+	}
+	50% {
+		transform: translate(5px, 0);
+	}
+	75% {
+		transform: translate(-5px, 0);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+.header {
+	padding: 1rem 2rem;
+	background-image: url('/picture/паровоз.jpg');
+	background-size: cover;
+	background-position: center;
+	height: 800px;
+	width: 80%;
+	margin-left: 10%;
+
+	.logo {
+		object-fit: cover;
+		height: 30px;
+		width: 100%;
+		transition: transform 0.3s;
+
+		&:hover {
+			animation: shake 0.5s ease-in-out; /* Анимация при наведении */
+		}
+	}
+
+	.header-buttons {
+		button {
+			padding: 0.5rem 1rem;
+			border: none;
+			border-radius: 5px;
+			background-color: #ffac3e;
+			color: white;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			width: 160px;
+			height: fit-content;
+			display: flex;
+			align-items: center;
+
+			&:hover {
+				background-color: #0f4103;
+			}
+		}
+	}
+
+	.info {
+		display: flex;
+		justify-content: space-between; /* Элементы равномерно распределены */
+		align-items: start; /* Выравнивание по вертикали */
+		width: 100%;
+		padding: 20px 0;
+	}
+
+	.textContainer {
+		background-color: rgba(39, 48, 119, 0.7);
+		backdrop-filter: blur(5px);
+		padding: 50px 50px;
+		border-radius: 50px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+		width: fit-content;
+		height: fit-content;
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column; /* Элементы выстраиваются вертикально */
+		justify-content: center; /* Центрируем по вертикали */
+		align-items: center; /* Центрируем по горизонтали */
+		height: 100%;
+		width: 100%; /* Текст занимает всю ширину контейнера */
+
+		p {
+			font-size: 1.5rem;
+			color: #ffffff; /* Белый цвет для текста */
+			margin: 0.5rem 0; /* Отступы между параграфами */
+		}
+
+		input {
+			padding: 0.5rem;
+			margin: 0.5rem 0;
+			border-radius: 5px;
+			border: 1px solid #ddd;
+			width: 300px;
+		}
+
+		.rangeInput {
+			width: 300px;
+		}
+
+		span {
+			color: #ffffff;
+			font-size: 1.2rem;
+			margin-top: 0.5rem;
+		}
+	}
+}

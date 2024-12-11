@@ -4,8 +4,8 @@ import { AppProvider } from '@/components/layout/context/AppProvider'
 import { Header } from '@/components/layout/Header/Header'
 import { Footer } from '@/components/layout/Footer/Footer'
 export const metadata: Metadata = {
-	title: 'IT-HUB Хахатон',
-	description: 'IT-HUB Хахатон',
+	title: 'Новогодние подарки от DNS',
+	description: 'Новогодние подарки от DNS',
 }
 
 export default function RootLayout({
