@@ -1,16 +1,17 @@
-'use client' // Делает компонент клиентским
+'use client'
 
 import React, { useState } from 'react'
 import styles from './header.module.scss'
-
-export const Header = () => {
-	const [searchText, setSearchText] = useState('')
-	const [priceRange, setPriceRange] = useState('')
-
-	const handleRedirect = () => {
-		window.open('https://www.dns-shop.ru', '_blank') // Открытие в новой вкладке
-	}
-
+import Link from 'next/link'
+import { IHeaderProps } from './header.interface'
+import cn from 'classnames'
+import { Cross } from '@/icons/Cross'
+import { Search } from '@/icons/Search'
+export const Header: React.FC<IHeaderProps> = props => {
+	const { min, max } = props
+	const [searchText, setSearchText] = useState<string>('')
+	const [priceRange, setPriceRange] = useState<string>(String(max / 2))
+	const [showTextContainer, setShowTextContainer] = useState<boolean>(false)
 	return (
 		<header className={styles.header}>
 			<div className={styles.info}>
@@ -19,11 +20,24 @@ export const Header = () => {
 				</div>
 
 				<div className={styles['header-buttons']}>
-					<button onClick={handleRedirect}>Перейти на сайт</button>
+					<button
+						onClick={() => setShowTextContainer(!showTextContainer)}
+						className={styles.search_btn}
+					>
+						{showTextContainer ? <Cross /> : <Search />}
+					</button>
+					<Link href={'https://www.dns-shop.ru'} target='_blank'>
+						Перейти на сайт
+					</Link>
 				</div>
 			</div>
 
-			<div className={styles.textContainer}>
+			<div
+				className={cn(
+					styles.textContainer,
+					showTextContainer && styles.textContainer_visible
+				)}
+			>
 				<div className={styles.text}>
 					<p>Подарки зависят только от вашего выбора!</p>
 					<p>Введите что вы хотите найти</p>
@@ -39,8 +53,8 @@ export const Header = () => {
 						type='range'
 						value={priceRange}
 						onChange={e => setPriceRange(e.target.value)}
-						min='0'
-						max='50000'
+						min={min}
+						max={max}
 						step='100'
 						className={styles.rangeInput}
 					/>

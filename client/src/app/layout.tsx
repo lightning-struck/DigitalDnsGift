@@ -17,7 +17,7 @@ export default function RootLayout({
 		<html lang='ru'>
 			<AppProvider>
 				<body>
-					<Header />
+					<Header min={0} max={50000} />
 					<main>{children}</main>
 					<Footer />
 				</body>

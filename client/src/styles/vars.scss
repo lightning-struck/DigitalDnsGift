@@ -1,7 +1,8 @@
 @use './use/utils';
 
-:root {
+.container {
 	--container-width: 1456px;
+
 	@include utils.media-max-width(1347) {
 		--container-width: 1291px;
 	}
@@ -18,3 +19,10 @@
 		--container-width: 472px;
 	}
 }
+
+$background-color: #1a1a2e;
+$card-bg-color: #2e2e47;
+$text-color: #fff;
+$secondary-text-color: #b5b5b5;
+$button-bg-color: #4e9eed;
+$button-hover-color: #3c7bbd;
