@@ -1,16 +1,17 @@
 'use client'
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './header.module.scss'
 import Link from 'next/link'
-import { IHeaderProps } from './header.interface'
+
 import cn from 'classnames'
 import { Cross } from '@/icons/Cross'
 import { Search } from '@/icons/Search'
 import { Dropdown } from '@/components/shared/dropdown/dropdown'
 import { AppContext } from '@/hooks/useAppContext'
-export const Header: React.FC<IHeaderProps> = props => {
-	const { min, max } = props
+import { products } from '@/data/data'
+import { IGiftCardProps } from '@/components/shared/GiftCard/giftCard.interface'
+export const Header = () => {
 	const listItems = [
 		{
 			id: 1,
@@ -34,8 +35,26 @@ export const Header: React.FC<IHeaderProps> = props => {
 		},
 	]
 	const { option, setOption, price, setPrice } = useContext(AppContext)
-
+	const [min, setMin] = useState<number>(0)
+	const [max, setMax] = useState<number>(0)
 	const [showTextContainer, setShowTextContainer] = useState<boolean>(false)
+	const filteredProductsByInterests = option
+		? products.filter(card => card.interests.includes(option))
+		: products
+
+	const filteredProducts = filteredProductsByInterests.filter(
+		card => card.price <= Number(price)
+	)
+	const getRandomProducts = (
+		productsArray: IGiftCardProps[],
+		count: number
+	) => {
+		const shuffled = productsArray.sort(() => 0.5 - Math.random())
+		return shuffled.slice(0, count)
+	}
+
+	const randomProducts = getRandomProducts(filteredProducts, 5)
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.info}>
@@ -80,8 +99,8 @@ export const Header: React.FC<IHeaderProps> = props => {
 						type='range'
 						value={price}
 						onChange={e => setPrice(e.target.value)}
-						min={min}
-						max={max}
+						min={0}
+						max={150000}
 						step='100'
 						className={styles.rangeInput}
 					/>
