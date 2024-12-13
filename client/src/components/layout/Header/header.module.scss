@@ -84,6 +84,9 @@
 			opacity: 1;
 			pointer-events: all;
 		}
+		@media screen and (max-width: 768px) {
+			padding: 20px;
+		}
 	}
 
 	.text {
@@ -119,7 +122,6 @@
 		span {
 			color: #ffffff;
 			font-size: 1.2rem;
-			margin-top: 0.5rem;
 		}
 	}
 }
@@ -131,4 +133,16 @@
 	height: 35px;
 	background-color: #ffac3e;
 	border-radius: 5px;
+}
+.dropdown_wrapper {
+	width: 300px;
+}
+.dropdown_inner {
+	background-color: transparent !important;
+	border: 1px solid white;
+	width: 100%;
+	span {
+		font-size: 15px !important;
+		white-space: nowrap;
+	}
 }

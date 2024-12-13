@@ -1,0 +1,147 @@
+.hover {
+	&_wrapper {
+		margin-top: 30px;
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	&_select {
+		position: relative;
+		display: flex;
+		min-width: 242px;
+		height: 55px;
+		background: #fff;
+		padding: 20px;
+		font-size: 18px;
+		font-weight: 400;
+		border-radius: 8px;
+		align-items: center;
+		cursor: pointer;
+		justify-content: space-between;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		gap: 40px;
+		&_active {
+			.hover_list_wrapper {
+				transform: translateY(0);
+				opacity: 1;
+				pointer-events: all;
+			}
+			.arrow {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	&_list {
+		width: 100%;
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		top: 52px;
+		left: 0;
+
+		display: flex;
+		flex-direction: column;
+
+		&_wrapper {
+			pointer-events: none;
+			padding-top: 10px;
+			top: 52px;
+			left: 0;
+			width: 100%;
+			position: absolute;
+			transform: translateY(20px);
+			opacity: 0;
+			transition: ease 0.3s;
+		}
+		&_item {
+			a {
+				color: black;
+			}
+			transition: ease 0.3s;
+			padding: 10px 15px;
+			&:hover {
+				background-color: #f5f5f5;
+			}
+		}
+	}
+}
+
+.click {
+	&_wrapper {
+		margin-top: 30px;
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	&_select {
+		position: relative;
+		display: flex;
+		min-width: 242px;
+		height: 55px;
+		background: #fff;
+		padding: 20px;
+		font-size: 18px;
+		font-weight: 400;
+		border-radius: 8px;
+		align-items: center;
+		cursor: pointer;
+		justify-content: space-between;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		gap: 40px;
+		&_active {
+			.click_list_wrapper {
+				transform: translateY(0);
+				opacity: 1;
+				pointer-events: all;
+			}
+			.arrow {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	&_list {
+		width: 100%;
+		border-radius: 8px;
+		background: #fff;
+		overflow: hidden;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		top: 52px;
+		left: 0;
+
+		display: flex;
+		flex-direction: column;
+
+		&_wrapper {
+			pointer-events: none;
+			padding-top: 10px;
+			top: 52px;
+			left: 0;
+			width: 100%;
+			position: absolute;
+			transform: translateY(20px);
+			opacity: 0;
+			transition: ease 0.3s;
+		}
+		&_item {
+			a {
+				color: black;
+			}
+			transition: ease 0.3s;
+			padding: 10px 15px;
+			&:hover {
+				background-color: #f5f5f5;
+			}
+		}
+	}
+}
+
+.arrow {
+	flex: 0 0 auto;
+	width: 18px;
+	height: 18px;
+	transition: ease 0.3s;
+	path {
+		fill: white;
+	}
+}

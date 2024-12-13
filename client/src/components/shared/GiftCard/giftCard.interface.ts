@@ -1,7 +1,8 @@
 export interface IGiftCardProps {
-	id: number
-	icon: string
-	date: string
-	price: string
-	buttonText: string
+	name: string
+	icon?: string
+	price: number
+	buttonText?: string
+	interests: string[]
+	image: string
 }
